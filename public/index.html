@@ -1,172 +1,1576 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página do 2H3</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;1,14..32,300&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <link rel="icon" type="image/png" sizes="32x32"
-        href="https://user-images.githubusercontent.com/31005408/178034510-400bc31a-2829-4584-b5e3-fbb78c8fc3e3.png">
-    <link rel="stylesheet" href="./css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Site sobre a história, jogadores, lendas e títulos dos Los Angeles Lakers."
+  >
+
+  <title>Los Angeles Lakers | História e Legado</title>
+
+  <style>
+    /* =========================
+       CONFIGURAÇÕES GERAIS
+    ========================== */
+
+    :root {
+      --roxo: #552583;
+      --roxo-escuro: #24103d;
+      --amarelo: #fdb927;
+      --preto: #111111;
+      --branco: #ffffff;
+      --texto: #222222;
+      --borda: #dddddd;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: var(--amarelo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    /* =========================
+       MENU
+    ========================== */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: var(--roxo-escuro);
+      border-bottom: 3px solid var(--amarelo);
+    }
+
+    .navbar {
+      max-width: 1200px;
+      min-height: 70px;
+      margin: auto;
+      padding: 10px 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      color: var(--amarelo);
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .menu {
+      list-style: none;
+
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .menu a {
+      color: var(--branco);
+      text-decoration: none;
+      padding: 9px 10px;
+      border-radius: 6px;
+      font-size: 0.92rem;
+      font-weight: bold;
+    }
+
+    .menu a:hover {
+      background-color: var(--amarelo);
+      color: var(--preto);
+    }
+
+    .menu-btn {
+      display: none;
+      background-color: var(--amarelo);
+      color: var(--preto);
+      border: none;
+      border-radius: 6px;
+      padding: 9px 12px;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    /* =========================
+       BANNER PRINCIPAL
+    ========================== */
+
+    .hero {
+      min-height: 72vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+      color: var(--branco);
+
+      background:
+        linear-gradient(
+          rgba(36, 16, 61, 0.80),
+          rgba(85, 37, 131, 0.75)
+        ),
+        url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Los_Angeles_Lakers.jpg")
+        center / cover no-repeat;
+
+      padding: 80px 20px;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .hero h1 {
+      color: var(--amarelo);
+      font-size: clamp(2.5rem, 7vw, 5.5rem);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+
+      background-color: var(--amarelo);
+      color: var(--preto);
+
+      padding: 12px 20px;
+
+      border: 2px solid var(--amarelo);
+      border-radius: 8px;
+
+      text-decoration: none;
+      font-weight: bold;
+
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: var(--branco);
+      border-color: var(--branco);
+    }
+
+    /* =========================
+       SEÇÕES
+    ========================== */
+
+    main {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    section {
+      padding: 70px 20px;
+      scroll-margin-top: 80px;
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--roxo);
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      max-width: 760px;
+      margin: 0 auto 35px;
+
+      text-align: center;
+      color: #333333;
+    }
+
+    .intro {
+      background-color: var(--branco);
+
+      border-left: 5px solid var(--roxo);
+
+      padding: 25px;
+      margin-bottom: 30px;
+
+      border-radius: 8px;
+    }
+
+    /* =========================
+       HISTÓRIA
+    ========================== */
+
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .timeline::before {
+      content: "";
+
+      position: absolute;
+      left: 22px;
+      top: 0;
+      bottom: 0;
+
+      width: 3px;
+
+      background-color: var(--roxo);
+    }
+
+    .timeline-item {
+      position: relative;
+
+      padding: 0 0 30px 65px;
+    }
+
+    .timeline-item::before {
+      content: "";
+
+      position: absolute;
+      left: 12px;
+      top: 4px;
+
+      width: 22px;
+      height: 22px;
+
+      border-radius: 50%;
+
+      background-color: var(--roxo);
+
+      border: 4px solid var(--amarelo);
+    }
+
+    .timeline-card {
+      background-color: var(--branco);
+
+      padding: 22px;
+
+      border-radius: 10px;
+
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+    }
+
+    .timeline-card h3 {
+      color: var(--roxo);
+      margin-bottom: 7px;
+    }
+
+    /* =========================
+       CARDS
+    ========================== */
+
+    .cards {
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 22px;
+    }
+
+    .card {
+      background-color: var(--branco);
+
+      border-radius: 12px;
+
+      overflow: hidden;
+
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.15);
+
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      height: 270px;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card h3 {
+      color: var(--roxo);
+      margin-bottom: 7px;
+    }
+
+    .tag {
+      display: inline-block;
+
+      background-color: var(--roxo);
+      color: var(--branco);
+
+      padding: 4px 9px;
+
+      border-radius: 20px;
+
+      font-size: 0.8rem;
+
+      margin-bottom: 10px;
+    }
+
+    /* =========================
+       TABELA DE TÍTULOS
+    ========================== */
+
+    .table-wrap {
+      overflow-x: auto;
+
+      background-color: var(--branco);
+
+      border-radius: 10px;
+
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      min-width: 650px;
+    }
+
+    th,
+    td {
+      padding: 15px;
+
+      border-bottom: 1px solid var(--borda);
+
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--roxo);
+      color: var(--branco);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* =========================
+       CULTURA
+    ========================== */
+
+    .culture {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 30px;
+
+      align-items: center;
+    }
+
+    .culture img {
+      height: 380px;
+
+      border-radius: 12px;
+    }
+
+    .culture ul {
+      margin: 15px 0 0 20px;
+    }
+
+    /* =========================
+       QUIZ
+    ========================== */
+
+    .quiz {
+      max-width: 850px;
+
+      margin: auto;
+
+      background-color: var(--branco);
+
+      padding: 30px;
+
+      border-radius: 12px;
+
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.15);
+    }
+
+    .question {
+      padding: 22px 0;
+
+      border-bottom: 1px solid var(--borda);
+    }
+
+    .question:last-of-type {
+      border-bottom: none;
+    }
+
+    .question h3 {
+      color: var(--roxo);
+
+      margin-bottom: 12px;
+    }
+
+    .option {
+      display: block;
+
+      margin: 8px 0;
+
+      padding: 10px;
+
+      border: 1px solid var(--borda);
+
+      border-radius: 7px;
+
+      cursor: pointer;
+    }
+
+    .option:hover {
+      background-color: #f3eaff;
+    }
+
+    .result {
+      display: none;
+
+      margin-top: 22px;
+
+      padding: 18px;
+
+      border-radius: 8px;
+
+      background-color: #eeeeee;
+
+      font-weight: bold;
+
+      text-align: center;
+    }
+
+    /* =========================
+       SOBRE
+    ========================== */
+
+    .about-box {
+      background-color: var(--roxo-escuro);
+
+      color: var(--branco);
+
+      padding: 35px;
+
+      border-radius: 12px;
+    }
+
+    .about-box h2 {
+      color: var(--amarelo);
+
+      margin-bottom: 15px;
+    }
+
+    /* =========================
+       RODAPÉ
+    ========================== */
+
+    footer {
+      background-color: var(--roxo-escuro);
+
+      color: var(--branco);
+
+      text-align: center;
+
+      padding: 30px 20px;
+
+      border-top: 3px solid var(--amarelo);
+    }
+
+    footer p {
+      margin: 6px 0;
+    }
+
+    .criador {
+      color: var(--amarelo);
+
+      font-size: 1.1rem;
+
+      font-weight: bold;
+    }
+
+    .credits {
+      color: #dddddd;
+
+      font-size: 0.85rem;
+    }
+
+    /* =========================
+       RESPONSIVIDADE
+    ========================== */
+
+    @media (max-width: 850px) {
+      .navbar {
+        flex-wrap: wrap;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .menu {
+        display: none;
+
+        width: 100%;
+
+        flex-direction: column;
+      }
+
+      .menu.open {
+        display: flex;
+      }
+
+      .menu a {
+        display: block;
+
+        text-align: center;
+      }
+
+      .cards {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .culture {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 50px 15px;
+      }
+
+      .hero {
+        min-height: 65vh;
+      }
+
+      .timeline::before {
+        left: 15px;
+      }
+
+      .timeline-item {
+        padding-left: 48px;
+      }
+
+      .timeline-item::before {
+        left: 5px;
+      }
+
+      .quiz {
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">Links</a></li>
-                <li><a href="#">Notícias</a></li>
-                <li><a href="#">Sobre Nós</a></li>
-                <li><a href="#">Contato</a></li>
-            </ul>
-        </nav>
-        <h1>
-    </header>
-    <main>
-        <section>
-            <div class="banner">
-                <img src="./img/banner.png" alt="banner" width="100%">
-            </div>
-        </section>
-        <section name="texto-intro">
-            <h1>
-                Nossa História
-            </h1>
-            <strong>
-                <span class="material-symbols-outlined">
-                    history_edu
-                </span>
-                De Matão para o mundo: A origem do GoodPay
-            </strong>
-            <hr />
+
+  <!-- =========================
+       MENU
+  ========================== -->
+
+  <header>
+    <nav class="navbar">
+
+      <a class="logo" href="#home">
+        🏀 LAKERS
+      </a>
+
+      <button
+        class="menu-btn"
+        onclick="toggleMenu()"
+        aria-label="Abrir menu"
+      >
+        ☰
+      </button>
+
+      <ul class="menu" id="menu">
+
+        <li>
+          <a href="#home">Início</a>
+        </li>
+
+        <li>
+          <a href="#historia">História</a>
+        </li>
+
+        <li>
+          <a href="#jogadores">Jogadores</a>
+        </li>
+
+        <li>
+          <a href="#lendas">Lendas</a>
+        </li>
+
+        <li>
+          <a href="#titulos">Títulos</a>
+        </li>
+
+        <li>
+          <a href="#cultura">Cultura</a>
+        </li>
+
+        <li>
+          <a href="#quiz">Quiz</a>
+        </li>
+
+        <li>
+          <a href="#sobre">Sobre</a>
+        </li>
+
+      </ul>
+
+    </nav>
+  </header>
+
+
+  <!-- =========================
+       HOME
+  ========================== -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <h1>
+        LOS ANGELES LAKERS
+      </h1>
+
+      <p>
+        Conheça a história, os grandes jogadores, as lendas e os momentos
+        que transformaram os Lakers em uma das franquias mais conhecidas da NBA.
+      </p>
+
+      <a href="#historia" class="btn">
+        Conhecer a história
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <main>
+
+    <!-- =========================
+         HISTÓRIA
+    ========================== -->
+
+    <section id="historia">
+
+      <h2 class="section-title">
+        História
+      </h2>
+
+      <p class="section-subtitle">
+        Uma trajetória marcada por grandes equipes, jogadores e momentos históricos.
+      </p>
+
+      <div class="intro">
+
+        <p>
+          A franquia que hoje conhecemos como Los Angeles Lakers começou em
+          Minneapolis, onde ganhou o apelido "Lakers", relacionado à região
+          conhecida pelos seus muitos lagos. Em 1960, a equipe se mudou para
+          Los Angeles e começou uma nova fase de sua história.
+        </p>
+
+      </div>
+
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+
+          <div class="timeline-card">
+
+            <h3>
+              1947 — Início em Minneapolis
+            </h3>
+
             <p>
-                O GoodPay não nasceu em uma sala de reuniões corporativa, mas sim dentro de um ambiente de
-                educação e transformação: a <em>Etec Sylvio de Matos Carvalho</em>, na cidade de Matão. Somos um
-                grupo de alunos do curso Técnico de Informática que decidiu que a tecnologia não deve servir
-                apenas para criar sistemas, mas para transformar realidades.
+              A franquia foi criada em Minneapolis e rapidamente ganhou
+              destaque no basquete profissional.
             </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+          <div class="timeline-card">
+
+            <h3>
+              1950s — George Mikan
+            </h3>
+
             <p>
-                Sob a mentoria e orientação do Professor Victor, o projeto saiu do papel como uma iniciativa
-                de empreendedorismo social. Unindo uma sólida base pedagógica com o desejo de gerar impacto
-                positivo, percebemos que poderíamos usar o conhecimento adquirido em sala de aula para
-                desenvolver uma solução real para problemas sociais. O GoodPay é o resultado prático dessa
-                jornada: um ecossistema construído por estudantes da rede pública, focado em inovação
-                tecnológica responsável e cidadania.
+              George Mikan foi uma das primeiras grandes estrelas da franquia,
+              ajudando os Lakers a conquistarem títulos importantes.
             </p>
-        </section>
-        <section name="historia" id="nossa-historia">
-            <h2><strong>
-                    <span class="material-symbols-outlined">
-                        whatshot
-                    </span>
-                    GoodPay | News
-                </strong></h2>
-            by: <em>Victor Sena Icoma</em>
-            <blockquote
-                cite="https://ge.globo.com/futebol/times/corinthians/noticia/2026/08/11/corinthians-decide-nao-renovar-contrato-de-memphis.ghtml">
-                Corinthians decide não renovar contrato de Memphis
-                Depois de meses de negociação e retorno do atacante holandês ao Brasil,
-                presidente Osmar Stabile desiste de renovação alegando responsabilidade
-                financeira; camisa 10 não joga mais pelo clube
-            </blockquote>
-            <blockquote
-                cite="https://g1.globo.com/fantastico/noticia/2026/08/11/hackeamento-da-mente-como-golpistas-usam-medo-e-urgencia-para-fazer-vitimas-no-golpe-da-falsa-central-bancaria.ghtml">
-                'Hackeamento da mente': como golpistas usam medo e urgência para fazer vítimas no golpe da falsa central
-                bancária
-                Criminosos se passaram por funcionários do banco, usaram dados pessoais da vítima e a convenceram a
-                realizar procedimentos no aplicativo; além do dinheiro da conta, houve uso do cheque especial e
-                contratação de financiamento.
-            </blockquote>
-            <blockquote
-                cite="https://www.inovacaotecnologica.com.br/noticias/noticia.php?artigo=funcao-onda-eletrons&id=010165260811">
-                Função de onda do elétron é fotografada em 3D pela primeira vez
-                Espectroscopia fotoeletrônica de última geração (lado esquerdo) foi usada com uma fonte de luz de raios
-                X suaves, que fornece pulsos de luz ultracurtos. Combinada com algoritmos adequados, isto permitiu obter
-                imagens da função de onda dos orbitais eletrônicos (lado direito).
-            </blockquote>
-            <blockquote
-                cite="https://g1.globo.com/sp/sao-paulo/noticia/2026/08/08/ana-maria-braga-participa-de-aula-aberta-da-academia-led-e-globo-ads-na-usp-inscricoes-estao-abertas.ghtml">
-                Ana Maria Braga participa de aula aberta da Academia LED e Globo Ads na USP; veja como se inscrever
-                Evento gratuito para universitários acontece na segunda-feira (10), em São Paulo, e também reúne
-                Giovanna Pitel, Manzar Feres e Clotilde Perez.
-            </blockquote>
-            <blockquote
-                cite="https://www.bbc.com/portuguese/noticias/2014/09/140917_aparelho_mastigadas_eletricidade_rb">
-                Dispositivo no queixo gera eletricidade com mastigação de chiclete
-                Engenheiros canadenses construíram um aparelho que, por meio de uma correia presa ao queixo, transforma
-                em eletricidade a força usada em movimentos de mastigação.
 
-                Seus inventores esperam que ele possa tornar desnecessário o uso de baterias em aparelhos auditivos e
-                outros aparelhos eletrônicos pequenos usados no dia a dia.
-            </blockquote>
-            <blockquote cite="bbc.co.uk/portuguese/noticias/2014/09/140901_mitocondrias_pais_cq.shtml">
-                Adolescente tem três pais biológicos
-                Procedimento para evitar doenças mitocondriais utiliza código genético de três pessoas para conceber
-                bebês, mas há preocupações éticas e de saúde
-            </blockquote>
-        </section>
-        <section name="galeria-imagens" id="fotos-contexto">
-            <table>
-                <tr>
-                    <td>
-                        <img src="./img/gp1.jpg" alt="Galeria 1" width="144px" height="256px">
-                    </td>
-                    <td>
-                        Investir em sustentabilidade, com o GoodPay é investir em futuro e esperança nas próximas
-                        gerações. Energia Solar, Eco Reciclagem e Consumo de reuso faz para todos.
-                    </td>
-                    <td>
-                        <img src="./img/gp2.jpg" alt="Galeria 2" width="144px" height="256px">
-                    </td>
-                    <td>
-                        Plante futuro e colha seus frutos de redenção, os passos para um futuro de novas gerações
-                        começa com sua visão de consumo. No nosso aplicativo uma rede de empresas se unem para um
-                        sistema colaborativo de ecorentabilidade.
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Eco sustentável é a casa do futuro, tenha sistema de energia limpa e ganhe pontuação para
-                        consumir com nossos colaboradores. Em parceria com a Energy a GoodPay troca pontos de
-                        Energia Solar por produtos em nosso MarketPlace, de vestuário a eletrônicos temos aqui.
-                    </td>
-                    <td>
-                        <img src="./img/gp3.jpg" alt="Galeria 3" width="144px" height="256px">
-                    </td>
-                    <td>
-                        Eco reforma, seu jardim pode render dinheiro, já pensou em vender consumo de agua de reuso,
-                        com o sistema de captação de agua da GoodPay podemos coletar de 20 até 500 mil m<sup>3</sup>
-                        para limpeza ou mesmo para utilização em sistema de hidraúlica motora.
-                    </td>
-                    <td>
-                        <img src="./img/gp4.jpg" alt="Galeria 4" width="144px" height="256px">
-                    </td>
-                </tr>
-            </table>
-        </section>
-        <section name="divisores">
-            <div class="photo-card">
-                <div class="intro-photo" id="intro1">
-                    <h1>Casa Inteligente e Ecosuficiente</h1>
-                    <p>Sua casa rede dinheiro com sustentabilidade.</p>
-                </div>
-                <div class="intro-photo" id="intro2">
-                    <h1>Eco Energy Jardim</h1>
-                    <p>Um jardim de possibilidades para sua agua e reutilização de energia.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer>
+          </div>
 
-    </footer>
-</body>
+        </div>
 
-</html>
+
+        <div class="timeline-item">
+
+          <div class="timeline-card">
+
+            <h3>
+              1960 — Mudança para Los Angeles
+            </h3>
+
+            <p>
+              A equipe deixou Minneapolis e se estabeleceu em Los Angeles,
+              iniciando uma nova fase de sua história.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+          <div class="timeline-card">
+
+            <h3>
+              1980s — Showtime
+            </h3>
+
+            <p>
+              Com Magic Johnson e Kareem Abdul-Jabbar, os Lakers ficaram
+              conhecidos pelo estilo rápido e criativo chamado Showtime.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+          <div class="timeline-card">
+
+            <h3>
+              2000s — Kobe e Shaq
+            </h3>
+
+            <p>
+              Kobe Bryant e Shaquille O'Neal lideraram uma das duplas mais
+              marcantes da NBA no início dos anos 2000.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+          <div class="timeline-card">
+
+            <h3>
+              2020 — 17º campeonato
+            </h3>
+
+            <p>
+              Liderados por LeBron James e Anthony Davis, os Lakers
+              conquistaram o título da NBA em 2020.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         JOGADORES
+    ========================== -->
+
+    <section id="jogadores">
+
+      <h2 class="section-title">
+        Jogadores
+      </h2>
+
+      <p class="section-subtitle">
+        Alguns jogadores que fizeram parte da história recente da franquia.
+      </p>
+
+
+      <div class="cards">
+
+        <article class="card">
+
+          <img
+            src="https://commons.wikimedia.org/wiki/Special:Redirect/file/LeBron_James_Lakers.jpg"
+            alt="LeBron James jogando pelo Los Angeles Lakers"
+          >
+
+          <div class="card-content">
+
+            <span class="tag">
+              Atleta
+            </span>
+
+            <h3>
+              LeBron James
+            </h3>
+
+            <p>
+              Uma das maiores estrelas da história da NBA. Chegou aos Lakers
+              em 2018 e ajudou a equipe a conquistar o título de 2020.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="card">
+
+          <img
+            src="https://commons.wikimedia.org/wiki/Special:Redirect/file/AD_lakers.jpg"
+            alt="Anthony Davis jogando pelo Los Angeles Lakers"
+          >
+
+          <div class="card-content">
+
+            <span class="tag">
+              Atleta
+            </span>
+
+            <h3>
+              Anthony Davis
+            </h3>
+
+            <p>
+              Ala-pivô e pivô de grande impacto defensivo e ofensivo,
+              fundamental na campanha do campeonato de 2020.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="card">
+
+          <img
+            src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Kobe_B_Bryant.jpg"
+            alt="Kobe Bryant jogando pelo Los Angeles Lakers"
+          >
+
+          <div class="card-content">
+
+            <span class="tag">
+              Lenda
+            </span>
+
+            <h3>
+              Kobe Bryant
+            </h3>
+
+            <p>
+              Ícone dos Lakers, Kobe passou toda a sua carreira na franquia
+              e conquistou cinco campeonatos da NBA.
+            </p>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         LENDAS
+    ========================== -->
+
+    <section id="lendas">
+
+      <h2 class="section-title">
+        Lendas
+      </h2>
+
+      <p class="section-subtitle">
+        Jogadores que ajudaram a construir o legado histórico dos Lakers.
+      </p>
+
+
+      <div class="cards">
+
+        <article class="card">
+
+          <img
+            src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Magic_Johnson_at_Lakers_championship_rally%2C_1980.jpg"
+            alt="Magic Johnson em evento dos Lakers"
+          >
+
+          <div class="card-content">
+
+            <span class="tag">
+              Lenda
+            </span>
+
+            <h3>
+              Magic Johnson
+            </h3>
+
+            <p>
+              Armador lendário conhecido por seus passes, visão de jogo
+              e por liderar o Showtime dos anos 1980.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="card">
+
+          <img
+            src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Press_conference_announcing_Lakers%27_signing_Kareem_Abdul-Jabbar.jpg"
+            alt="Kareem Abdul-Jabbar em coletiva de imprensa"
+          >
+
+          <div class="card-content">
+
+            <span class="tag">
+              Lenda
+            </span>
+
+            <h3>
+              Kareem Abdul-Jabbar
+            </h3>
+
+            <p>
+              Um dos maiores pivôs da história do basquete e uma das
+              principais estrelas da era Showtime.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="card">
+
+          <img
+            src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Shaquille_O%27Neal.JPG"
+            alt="Shaquille O'Neal"
+          >
+
+          <div class="card-content">
+
+            <span class="tag">
+              Lenda
+            </span>
+
+            <h3>
+              Shaquille O'Neal
+            </h3>
+
+            <p>
+              Dominante no garrafão, Shaq foi peça fundamental nos três
+              títulos consecutivos conquistados pelos Lakers de 2000 a 2002.
+            </p>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         TÍTULOS
+    ========================== -->
+
+    <section id="titulos">
+
+      <h2 class="section-title">
+        Títulos
+      </h2>
+
+      <p class="section-subtitle">
+        Alguns dos principais campeonatos conquistados pela franquia.
+      </p>
+
+
+      <div class="table-wrap">
+
+        <table>
+
+          <thead>
+
+            <tr>
+              <th>Ano</th>
+              <th>Era / Destaque</th>
+              <th>Observação</th>
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>1949</td>
+              <td>Minneapolis</td>
+              <td>Primeiro campeonato da franquia na BAA.</td>
+            </tr>
+
+            <tr>
+              <td>1950</td>
+              <td>George Mikan</td>
+              <td>Domínio dos primeiros anos da equipe.</td>
+            </tr>
+
+            <tr>
+              <td>1980</td>
+              <td>Magic Johnson</td>
+              <td>Início de uma das grandes fases dos Lakers.</td>
+            </tr>
+
+            <tr>
+              <td>1985</td>
+              <td>Showtime</td>
+              <td>Mais um campeonato durante a era Magic e Kareem.</td>
+            </tr>
+
+            <tr>
+              <td>2000</td>
+              <td>Kobe Bryant e Shaquille O'Neal</td>
+              <td>Primeiro de três títulos consecutivos.</td>
+            </tr>
+
+            <tr>
+              <td>2001</td>
+              <td>Kobe Bryant e Shaquille O'Neal</td>
+              <td>Segundo título consecutivo.</td>
+            </tr>
+
+            <tr>
+              <td>2002</td>
+              <td>Kobe Bryant e Shaquille O'Neal</td>
+              <td>Terceiro título consecutivo.</td>
+            </tr>
+
+            <tr>
+              <td>2009</td>
+              <td>Kobe Bryant</td>
+              <td>Retorno ao topo com Kobe como principal estrela.</td>
+            </tr>
+
+            <tr>
+              <td>2010</td>
+              <td>Kobe Bryant</td>
+              <td>Bi-campeonato consecutivo.</td>
+            </tr>
+
+            <tr>
+              <td>2020</td>
+              <td>LeBron James e Anthony Davis</td>
+              <td>17º campeonato da franquia.</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CULTURA
+    ========================== -->
+
+    <section id="cultura">
+
+      <h2 class="section-title">
+        Cultura Lakers
+      </h2>
+
+      <p class="section-subtitle">
+        O Lakers é mais do que uma equipe: tornou-se parte importante
+        da cultura esportiva de Los Angeles.
+      </p>
+
+
+      <div class="culture">
+
+        <img
+          src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Los_Angeles_Lakers.jpg"
+          alt="Imagem relacionada aos Los Angeles Lakers"
+        >
+
+
+        <div>
+
+          <h3>
+            O legado da franquia
+          </h3>
+
+          <p>
+            A identidade dos Lakers está associada a grandes estrelas,
+            títulos, tradição e ao entretenimento esportivo de Los Angeles.
+          </p>
+
+
+          <ul>
+
+            <li>
+              Showtime e basquete rápido.
+            </li>
+
+            <li>
+              Grandes rivalidades da NBA.
+            </li>
+
+            <li>
+              Uniforme tradicional em roxo e dourado.
+            </li>
+
+            <li>
+              Grandes estrelas ao longo das décadas.
+            </li>
+
+            <li>
+              Forte presença na cultura esportiva de Los Angeles.
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         QUIZ
+    ========================== -->
+
+    <section id="quiz">
+
+      <h2 class="section-title">
+        Quiz dos Lakers
+      </h2>
+
+      <p class="section-subtitle">
+        Teste seus conhecimentos sobre a história da franquia.
+      </p>
+
+
+      <div class="quiz">
+
+        <!-- PERGUNTA 1 -->
+
+        <div class="question">
+
+          <h3>
+            1. Em qual cidade a franquia começou?
+          </h3>
+
+          <label class="option">
+            <input type="radio" name="q1" value="errado">
+            Los Angeles
+          </label>
+
+          <label class="option">
+            <input type="radio" name="q1" value="certo">
+            Minneapolis
+          </label>
+
+          <label class="option">
+            <input type="radio" name="q1" value="errado">
+            Chicago
+          </label>
+
+        </div>
+
+
+        <!-- PERGUNTA 2 -->
+
+        <div class="question">
+
+          <h3>
+            2. Qual jogador foi uma das maiores estrelas do Showtime?
+          </h3>
+
+          <label class="option">
+            <input type="radio" name="q2" value="certo">
+            Magic Johnson
+          </label>
+
+          <label class="option">
+            <input type="radio" name="q2" value="errado">
+            Stephen Curry
+          </label>
+
+          <label class="option">
+            <input type="radio" name="q2" value="errado">
+            Tim Duncan
+          </label>
+
+        </div>
+
+
+        <!-- PERGUNTA 3 -->
+
+        <div class="question">
+
+          <h3>
+            3. Quem formou uma dupla histórica com Kobe Bryant?
+          </h3>
+
+          <label class="option">
+            <input type="radio" name="q3" value="errado">
+            Kareem Abdul-Jabbar
+          </label>
+
+          <label class="option">
+            <input type="radio" name="q3" value="certo">
+            Shaquille O'Neal
+          </label>
+
+          <label class="option">
+            <input type="radio" name="q3" value="errado">
+            Magic Johnson
+          </label>
+
+        </div>
+
+
+        <!-- PERGUNTA 4 -->
+
+        <div class="question">
+
+          <h3>
+            4. Quem foi um dos principais líderes dos Lakers no título de 2020?
+          </h3>
+
+          <label class="option">
+            <input type="radio" name="q4" value="certo">
+            LeBron James
+          </label>
+
+          <label class="option">
+            <input type="radio" name="q4" value="errado">
+            Michael Jordan
+          </label>
+
+          <label class="option">
+            <input type="radio" name="q4" value="errado">
+            Larry Bird
+          </label>
+
+        </div>
+
+
+        <!-- PERGUNTA 5 -->
+
+        <div class="question">
+
+          <h3>
+            5. Em qual década o Showtime ficou especialmente famoso?
+          </h3>
+
+          <label class="option">
+            <input type="radio" name="q5" value="errado">
+            Anos 1960
+          </label>
+
+          <label class="option">
+            <input type="radio" name="q5" value="certo">
+            Anos 1980
+          </label>
+
+          <label class="option">
+            <input type="radio" name="q5" value="errado">
+            Anos 2010
+          </label>
+
+        </div>
+
+
+        <button
+          class="btn"
+          onclick="responder()"
+          type="button"
+        >
+          Ver resultado
+        </button>
+
+        <button
+          class="btn"
+          onclick="reiniciarQuiz()"
+          type="button"
+        >
+          Reiniciar
+        </button>
+
+
+        <div
+          class="result"
+          id="resultado"
+        ></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SOBRE
+    ========================== -->
+
+    <section id="sobre">
+
+      <div class="about-box">
+
+        <h2>
+          Sobre este site
+        </h2>
+
+        <p>
+          Este projeto foi desenvolvido como um site educativo sobre
+          os Los Angeles Lakers. Ele reúne informações históricas,
+          jogadores, lendas, títulos, cultura e um quiz interativo.
+        </p>
+
+        <br>
+
+        <p>
+          O projeto utiliza apenas
+          <strong>HTML, CSS e JavaScript</strong>,
+          todos dentro deste único arquivo
+          <strong>index.html</strong>.
+        </p>
+
+        <br>
+
+        <p>
+          As imagens utilizadas são carregadas da Wikimedia Commons.
+          Para um trabalho escolar, confira a licença de cada imagem
+          e mantenha os créditos correspondentes.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       RODAPÉ
+  ========================== -->
+
+  <footer>
+
+    <p class="criador">
+      Criado por Thierry Henry
+    </p>
+
+    <p>
+      Los Angeles Lakers — História e Legado
+    </p>
+
+    <p class="credits">
+      Projeto educativo desenvolvido para estudo de HTML, CSS e JavaScript.
+    </p>
+
+    <p class="credits">
+      Imagens: Wikimedia Commons. Verifique as licenças e créditos antes de publicar.
+    </p>
+
+  </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+    /* Abrir e fechar o menu no celular */
+
+    function toggleMenu() {
+
+      const menu = document.getElementById("menu");
+
+      menu.classList.toggle("open");
+
+    }
+
+
+    /* Fechar menu depois de clicar em uma opção */
+
+    document.querySelectorAll(".menu a").forEach(function(link) {
+
+      link.addEventListener("click", function() {
+
+        document.getElementById("menu").classList.remove("open");
+
+      });
+
+    });
+
+
+    /* =========================
+       QUIZ
+    ========================== */
+
+    function responder() {
+
+      let pontuacao = 0;
+
+      let respondidas = 0;
+
+
+      for (let i = 1; i <= 5; i++) {
+
+        const resposta = document.querySelector(
+          'input[name="q' + i + '"]:checked'
+        );
+
+
+        if (resposta) {
+
+          respondidas++;
+
+
+          if (resposta.value === "certo") {
+
+            pontuacao++;
+
+          }
+
+        }
+
+      }
+
+
+      const resultado = document.getElementById("resultado");
+
+      resultado.style.display = "block";
+
+
+      if (respondidas < 5) {
+
+        resultado.textContent =
+          "Responda todas as 5 perguntas antes de ver sua pontuação.";
+
+        return;
+
+      }
+
+
+      let mensagem = "";
+
+
+      if (pontuacao === 5) {
+
+        mensagem =
+          "🏆 Excelente! Você acertou tudo!";
+
+      }
+
+      else if (pontuacao >= 3) {
+
+        mensagem =
+          "👏 Muito bem! Você conhece bastante os Lakers.";
+
+      }
+
+      else {
+
+        mensagem =
+          "📚 Continue estudando a história dos Lakers!";
+
+      }
+
+
+      resultado.innerHTML =
+        mensagem +
+        "<br>" +
+        "Você acertou " +
+        pontuacao +
+        " de 5 perguntas.";
+
+    }
+
+
+    /* Reiniciar o quiz */
+
+    function reiniciarQuiz() {
+
+      document
+        .querySelectorAll('input[type="radio"]')
+        .forEach(function(input) {
+
+          input.checked = false;
+
+        });
+
+
+      const resultado =
+        document.getElementById("resultado");
+
+
+      resultado.style.display = "none";
+
+      resultado.textContent = "";
+
+    }
+
+  </script>
+
+<body>
